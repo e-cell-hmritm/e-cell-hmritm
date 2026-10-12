@@ -1,0 +1,131 @@
+/* Add a glowing gradient effect to the hero-container background */
+.hero-container {
+    background: radial-gradient(circle at 90% 10%, rgba(185, 107, 55, 0.18) 0%, #1a1a1d 60%);
+    border-radius: 2rem;
+    padding: 4rem 3rem;
+    box-shadow: 0 0 120px 0 rgba(185, 107, 55, 0.18);
+    max-width: 1400px;
+    margin: 2rem auto;
+    color: #fff;
+    position: relative;
+}
+body {
+    background-color: black;
+    color: white;
+}
+
+.hero-btn-primary svg {
+    width: 2rem;
+    height: 2rem;
+    stroke: #232323;
+    stroke-width: 2.5px;
+    margin-right: 0.5rem;
+}
+
+.hero-btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #ff8000;
+    color: #232323;
+    font-weight: 700;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 16px 0 rgba(255,128,0,0.15);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.hero-btn-primary:hover {
+    background: #ff9900;
+    box-shadow: 0 4px 24px 0 rgba(255,128,0,0.25);
+}
+:root {
+    --primary: #0df2cc;
+    --neutral-dark: #18181b;
+    --neutral-muted: #a1a1aa;
+    --background-dark: #0f0f11;
+    /* Add more as needed */
+}
+.hero-container {
+    background: #1a1a1d;
+    border-radius: 2rem;
+    padding: 4rem 3rem;
+    box-shadow: 0 0 120px 0 rgba(185, 107, 55, 0.08);
+    max-width: 1400px;
+    margin: 2rem auto;
+    color: #fff;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-highlight {
+    color: #ff8000;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--neutral-muted);
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.hero-btn-primary {
+    background: #ff8000;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: background 0.2s;
+}
+
+.hero-btn-primary:hover {
+    background: #ff9900;
+}
+
+.hero-btn-secondary {
+    background: #232323;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.hero-btn-secondary:hover {
+    background: #333;
+}
+
+.hero-tag {
+    background: #2d1a0a;
+    color: #ff8000;
+    font-weight: 700;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    letter-spacing: 0.05em;
+}
