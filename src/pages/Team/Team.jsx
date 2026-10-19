@@ -4,55 +4,41 @@ import Layout from '../../components/Layout/layout';
 import { Linkedin, X, Mail, ArrowUpRight } from 'react-feather';
 import LightRays from './animation/LightRays';
 
-import Shashank from '../../assets/TeamMember/shashank.jpeg'
+
 import ankushrana from '../../assets/TeamMember/ankushrana.jpg'
-import Aakriti from '../../assets/TeamMember/aakriti.jpeg'
-import AdityaKrChoubey from '../../assets/TeamMember/adityachoubey.jpeg'
-import Anish from '../../assets/TeamMember/anish.jpeg'
-import Adityakumar from '../../assets/TeamMember/Adityakumar.png'
-import anushka from '../../assets/TeamMember/anushka.jpg'
-import Aradhay from '../../assets/TeamMember/AradhayGupta.jpg'
-import Arnav from '../../assets/TeamMember/Arnav.jpeg'
-import arvind from '../../assets/TeamMember/arvind.jpeg'
-import charvi from '../../assets/TeamMember/charvi.png'
-import chitrakshi from '../../assets/TeamMember/chitrakshi.jpg'
-import daksh from '../../assets/TeamMember/daksh.jpg'
-import dev from '../../assets/TeamMember/dev.jpg'
-// import pfp from '../../assets/TeamMember/default.jpg'
-import divyansh from '../../assets/TeamMember/divyansh.jpg'
-import diya from '../../assets/TeamMember/diya.png'
-import himanshu from '../../assets/TeamMember/himanshu.jpeg'
-import ish from '../../assets/TeamMember/ish.png'
-import ishika from '../../assets/TeamMember/ishika.jpeg'
-import kirti from '../../assets/TeamMember/kirti.jpg'
-import krishna from '../../assets/TeamMember/krishna.jpg'
-import kritagya from '../../assets/TeamMember/kritigya.jpg'
-import latika from '../../assets/TeamMember/latika.jpeg'
-import madhu from '../../assets/TeamMember/madhu.jpeg'
-import manav from '../../assets/TeamMember/manav.jpeg'
-import manya from '../../assets/TeamMember/manya.jpg'
-import manisha from '../../assets/TeamMember/manisha.jpg'
-
-import nidhi from '../../assets/TeamMember/nidhi.jpg'
-import parth from '../../assets/TeamMember/parth.png'
-import piyush from '../../assets/TeamMember/piyush.jpg'
-import prince from '../../assets/TeamMember/prince.png'
-import purav from '../../assets/TeamMember/purav.png'
-import samaksh from '../../assets/TeamMember/samaksh.jpg'
-
-import samvat from '../../assets/TeamMember/samvat.jpeg'
-import satyam from '../../assets/TeamMember/satyam.png'
-import shruti from '../../assets/TeamMember/Shruti_Chauhan.png'
-import sujal from '../../assets/TeamMember/sujal.jpg'
-import tanya from '../../assets/TeamMember/tanyasharma.jpg'
-import tushar from '../../assets/TeamMember/tushar.png'
-import udhav from '../../assets/TeamMember/udhav.jpg'
-import male from '../../assets/TeamMember/male.png'
-import female from '../../assets/TeamMember/female.webp'
-import utkarsh from '../../assets/TeamMember/utkarsh.png'
-import sarita from '../../assets/TeamMember/sarita.jpg';
 import PandaMam from '../../assets/TeamMember/pandamam.PNG'
-import Aanya from '../../assets/TeamMember/aanya.png'
+import sarita from '../../assets/TeamMember/sarita.jpg'
+import nidhi from '../../assets/TeamMember/nidhi.jpg'
+import satyam from '../../assets/TeamMember/satyam.png'
+import manav from '../../assets/TeamMember/manav.jpeg'
+
+import krishna from '../../assets/TeamMember/2026/krishna.jpg'
+import sanskriti from '../../assets/TeamMember/2026/sanskriti.jpg'
+import navya from '../../assets/TeamMember/2026/navya.jpg'
+import kirti from '../../assets/TeamMember/2026/kirti.jpg'
+import himanshi from '../../assets/TeamMember/2026/himanshi.jpg'
+import yashraj from '../../assets/TeamMember/2026/yashraj.jpg'
+import nirbhay from '../../assets/TeamMember/2026/nirbhay.jpg'
+import daksh from '../../assets/TeamMember/2026/daksh.jpg'
+import akshita from '../../assets/TeamMember/2026/akshita.jpg'
+import shaurya from '../../assets/TeamMember/2026/shaurya.jpg'
+import harshit from '../../assets/TeamMember/2026/harshit.jpg'
+import arnav from '../../assets/TeamMember/2026/arnav.jpg'
+import prateek from '../../assets/TeamMember/2026/prateek.jpg'
+import jiya from '../../assets/TeamMember/2026/jiya.jpg'
+import ashish from '../../assets/TeamMember/2026/ashish.jpg'
+import anshul from '../../assets/TeamMember/2026/anshul.jpg'
+import ayush from '../../assets/TeamMember/2026/ayush.jpg'
+import udhav from '../../assets/TeamMember/2026/udhav.jpg'
+import yuvika from '../../assets/TeamMember/2026/yuvika.jpg'
+import ishika from '../../assets/TeamMember/2026/ishika.jpg'
+import diya from '../../assets/TeamMember/2026/diya.jpg'
+import samaksh from '../../assets/TeamMember/2026/samaksh.jpg'
+import aanya from '../../assets/TeamMember/2026/aanya.jpg'
+import arvind from '../../assets/TeamMember/2026/arvind.jpg'
+import progya from '../../assets/TeamMember/2026/progya.jpg'
+import aeshna from '../../assets/TeamMember/2026/aeshna.jpg'
+import parul from '../../assets/TeamMember/2026/parul.jpg'
 
 const Team = () => {
     const FacultyCoordinator = [
@@ -64,21 +50,9 @@ const Team = () => {
     ];
 
     const Coordinator = [
-        {
-            name : "Dr. Padmaja Panda",
-            role : "Coordinator",
-            img : PandaMam
-        },
-        {
-            name : "Ms. Sarita",
-            role : "Coordinator",
-            img : sarita
-        },
-        {
-            name : "Ms. Nidhi",
-            role : "Coordinator",
-            img : nidhi
-        },
+        { name: "Dr. Padmaja Panda", role: "Coordinator", img: PandaMam },
+        { name: "Ms. Sarita", role: "Coordinator", img: sarita },
+        { name: "Ms. Nidhi", role: "Coordinator", img: nidhi },
     ];
 
     const leadership = [
@@ -87,66 +61,56 @@ const Team = () => {
     ];
 
     const heads = [
-        { name: "Piyush Bhandari", role: "Technical Head", img: piyush },
-        { name: "Anish", role: "Content Head", img: Anish },
-        { name: "Purav", role: "Social Media Head", img: purav },
-        { name: "Aditya Kr Choubey", role: "Operations Head", img: AdityaKrChoubey },
-        { name: "Divyansh Sharma", role: "Design Head", img: divyansh },
-        { name: "Shruti", role: "Public Relations & Outreach Team", img: shruti },
-        { name: "Aakriti", role: "Research & Development Team", img: Aakriti },
+        { name: "Kirti", role: "Content Creation Team Leader", img: kirti },
+        { name: "Daksh Gahlot", role: "Corporate Relations Team Leader", img: daksh },
+        { name: "Arnav", role: "Design Team Leader", img: arnav },
+        { name: "Anshul", role: "Operation Team Leader", img: anshul },
+        { name: "Udhav", role: "Social Media Team Leader", img: udhav },
+        { name: "Ishika", role: "Sponsor Team Leader", img: ishika },
+        { name: "Arvind Singh", role: "Web and Technical Team Leader", img: arvind, linkedin: "https://www.linkedin.com/in/arvind2005/", email: "arvind42005@gmail.com" },
+    ];
+
+    const Content = [
+        { name: "Krishna", role: "Content Creation Team Member", img: krishna },
+        { name: "Sanskriti", role: "Content Creation Team Member", img: sanskriti },
+        { name: "Navya", role: "Content Creation Team Member", img: navya },
+    ];
+
+    const CorporateRelations = [
+        { name: "Himanshi", role: "Corporate Relations Team Member", img: himanshi },
+        { name: "Yashraj", role: "Corporate Relations Team Member", img: yashraj },
+        { name: "Nirbhay", role: "Corporate Relations Team Member", img: nirbhay },
+    ];
+
+    const Design = [
+        { name: "Akshita", role: "Design Team Member", img: akshita },
+        { name: "Shaurya", role: "Design Team Member", img: shaurya },
+        { name: "Harshit", role: "Design Team Member", img: harshit },
+    ];
+
+    const Operations = [
+        { name: "Prateek", role: "Operation Team Member", img: prateek },
+        { name: "Jiya", role: "Operation Team Member", img: jiya },
+        { name: "Ashish", role: "Operation Team Member", img: ashish },
+    ];
+
+    const Social_Media = [
+        { name: "Ayush", role: "Social Media Team Member", img: ayush },
+        { name: "Yuvika", role: "Social Media Team Member", img: yuvika },
+    ];
+
+    const Sponsor = [
+        { name: "Diya", role: "Sponsor Team Member", img: diya },
+        { name: "Samaksh", role: "Sponsor Team Member", img: samaksh },
+        { name: "Aanya", role: "Sponsor Team Member", img: aanya },
     ];
 
     const Technical = [
-        { name: "Arvind Singh", role: "Technical Team Member", img: arvind, linkedin: "https://www.linkedin.com/in/arvind2005/", email: "arvind42005@gmail.com", X:""},
-        { name: "Shashank Pandey", role: "Technical Team Member", img: Shashank , linkedin: "https://www.linkedin.com/in/shashank-pandey-2a3724291/", email: "shashankp846@gmail.com", X:""},
-        { name: "Aditya Kumar", role: "Technical Team Member", img: Adityakumar },
-        { name: "Tushar Sharma", role: "Technical Team Member", img: tushar },
-        { name: "Himanshu", role: "Technical Team Member", img: himanshu },
+        { name: "Progya Pal", role: "Web and Technical Team Member", img: progya },
+        { name: "Aeshna Jain", role: "Web and Technical Team Member", img: aeshna },
+        { name: "Parul Singh", role: "Web and Technical Team Member", img: parul },
     ];
-    const Content = [
-        { name: "Kirti Khatri", role: "Content Team Member", img: kirti },
-        { name: "Charvi", role: "Content Team Member", img: charvi },
-        { name: "Sujal Bisht", role: "Content Team Member", img: sujal },
-        { name: "Krishna Jain", role: "Content Team Member", img: krishna },
 
-
-    ];
-    const Social_Media = [
-        { name: "Manisha", role: "Social Media Team Member", img: manisha },
-        { name: "Udhav Bhardwaj", role: "Social Media Team Member", img: udhav },
-        { name: "Anushka Bharti", role: "Social Media Team Member", img: anushka },
-        { name: "Dev", role: "Social Media Team Member", img: dev },
-
-    ];
-    const Operations = [
-        { name: "Latika", role: "Operations Team Member", img: latika },
-        { name: "Manya Jain", role: "Operations Team Member", img: manya },
-        { name: "Parth Dabas", role: "Operations Team Member", img: parth },
-        { name: "Samvat Dixit", role: "Operations Team Member", img: samvat },
-        { name: "Chitrakshi", role: "Operations Team Member", img: chitrakshi },
-        { name: "Madhu", role: "Operations Team Member", img: madhu },
-    ];
-    const Design = [
-        { name: "Arnav", role: "Design Team Member", img: Arnav },
-        { name: "Utkarsh Singh", role: "Design Team Member", img: utkarsh },
-        { name: "Diya", role: "Design Team Member", img: diya },
-        { name: "Tanya Sharma", role: "Design Team Member", img: tanya },
-    ];
-    const PR = [
-        { name: "Aanya Luthra", role: "Public Relations & Outreach Team Member", img: Aanya },
-        { name: "Prince", role: "Public Relations & Outreach Team Member", img: prince },
-        { name: "Ishika", role: "Public Relations & Outreach Team Member", img: ishika },
-        { name: "Samaksh Gupta", role: "Public Relations & Outreach Team Member", img: samaksh },
-
-
-    ];
-    const Research_Development = [
-        { name: "Ish Pandey", role: "Research & Development Team", img: ish },
-        { name: "Daksh Gahlot", role: "Research & Development Team", img: daksh },
-        { name: "Aradhya Gupta", role: "Research & Development Team", img: Aradhay },
-        { name: "Kritagya Verma", role: "Research & Development Team", img: kritagya },
-        
-    ];
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -265,17 +229,17 @@ const Team = () => {
     };
 
     const teamSections = [
-        { title: "E-Cell Coordinator", members: FacultyCoordinator, isLarge: true },
-        { title: "Faculty Coordinator", members: Coordinator, isLarge: true },
+        { title: "Faculty Coordinator", members: FacultyCoordinator, isLarge: true },
+        { title: "E-Cell Coordinators", members: Coordinator, isLarge: true },
         { title: "E-Cell Society Heads", members: leadership, isLarge: true },
         { title: "Team Leads", members: heads, isLarge: true },
-        { title: "Technical Team", members: Technical, isLarge: false },
-        { title: "Content Team", members: Content, isLarge: false },
+        { title: "Web and Technical Team", members: Technical, isLarge: false },
+        { title: "Content Creation Team", members: Content, isLarge: false },
         { title: "Social Media Team", members: Social_Media, isLarge: false },
-        { title: "Operations Team", members: Operations, isLarge: false },
+        { title: "Operation Team", members: Operations, isLarge: false },
         { title: "Design Team", members: Design, isLarge: false },
-        { title: "Public Relations & Outreach Team", members: PR, isLarge: false },
-        { title: "Research & Development Team", members: Research_Development, isLarge: false },
+        { title: "Corporate Relations Team", members: CorporateRelations, isLarge: false },
+        { title: "Sponsor Team", members: Sponsor, isLarge: false },
     ];
 
     return (
