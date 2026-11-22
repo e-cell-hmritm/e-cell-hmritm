@@ -59,19 +59,19 @@ function useHeroCanvas(canvasRef) {
 
       // Aurora top-right blue
       const g1 = ctx.createRadialGradient(W * 0.78, H * 0.12, 0, W * 0.78, H * 0.12, W * 0.55);
-      g1.addColorStop(0, "rgba(30,100,255,0.07)");
+      g1.addColorStop(0, "rgba(167,139,232,0.12)");
       g1.addColorStop(1, "transparent");
       ctx.fillStyle = g1; ctx.fillRect(0, 0, W, H);
 
       // Aurora bottom-left deep blue
       const g2 = ctx.createRadialGradient(W * 0.15, H * 0.75, 0, W * 0.15, H * 0.75, W * 0.45);
-      g2.addColorStop(0, "rgba(0,60,200,0.05)");
+      g2.addColorStop(0, "rgba(145,110,205,0.09)");
       g2.addColorStop(1, "transparent");
       ctx.fillStyle = g2; ctx.fillRect(0, 0, W, H);
 
       // Mouse spotlight
       const g3 = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 200);
-      g3.addColorStop(0, "rgba(60,130,255,0.08)");
+      g3.addColorStop(0, "rgba(167,139,232,0.12)");
       g3.addColorStop(1, "transparent");
       ctx.fillStyle = g3; ctx.fillRect(0, 0, W, H);
 
@@ -99,7 +99,7 @@ function useHeroCanvas(canvasRef) {
             const boost = md < 280 ? (1 - md / 280) * 0.5 : 0;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(80,140,255,${alpha + boost})`;
+            ctx.strokeStyle = `rgba(145,110,205,${alpha + boost})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -109,7 +109,7 @@ function useHeroCanvas(canvasRef) {
         const glow = md < 200 ? (1 - md / 200) * 0.8 : 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r + glow * 2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${100 + glow * 80},${160 + glow * 60},255,${0.3 + glow * 0.55})`;
+        ctx.fillStyle = `rgba(145,110,205,${0.3 + glow * 0.55})`;
         ctx.fill();
       });
 
@@ -150,7 +150,7 @@ export function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-[#04050a]"
+      className="relative min-h-screen overflow-hidden bg-[#FBFAFF]"
       style={{ fontFamily: "'Syne', sans-serif" }}
     >
       <style>{`
@@ -158,22 +158,22 @@ export function Hero() {
 
         .hero-outlined-text {
           color: transparent;
-          -webkit-text-stroke: 1.5px rgba(255,255,255,0.12);
+          -webkit-text-stroke: 1.5px rgba(100,75,145,0.16);
         }
         @media (max-width: 480px) {
-          .hero-outlined-text { -webkit-text-stroke: 1px rgba(255,255,255,0.12); }
+          .hero-outlined-text { -webkit-text-stroke: 1px rgba(100,75,145,0.16); }
         }
 
         .hero-gradient-text {
-          background: linear-gradient(110deg, #ffffff 0%, #6ab0ff 45%, #3060ff 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
+    background: linear-gradient(110deg, #493878 0%, #9673D1 50%, #B69AE8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
         .glow-blue {
-          box-shadow: 0 0 28px rgba(48,96,255,0.4), 0 0 70px rgba(48,96,255,0.12);
-        }
+    box-shadow: 0 0 28px rgba(145,110,205,0.22), 0 0 70px rgba(145,110,205,0.10);
+  }
 
         .noise-overlay {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
@@ -181,8 +181,8 @@ export function Hero() {
         }
 
         .ticker-badge {
-          background: rgba(48,96,255,0.1);
-          border: 1px solid rgba(80,140,255,0.3);
+          background: rgba(167,139,232,0.12);
+          border: 1px solid rgba(145,110,205,0.28);
         }
 
         .scan-line {
@@ -210,7 +210,7 @@ export function Hero() {
         .hero-scan-beam {
           position: absolute;
           left: 0; right: 0; height: 2px;
-          background: linear-gradient(to right, transparent, rgba(60,120,255,0.12), transparent);
+          background: linear-gradient(to right, transparent, rgba(145,110,205,0.16), transparent);
           animation: scanMove 10s linear infinite;
           pointer-events: none;
           z-index: 2;
@@ -218,7 +218,7 @@ export function Hero() {
 
         /* Mobile: stack feature cards with horizontal separator */
         .feature-card {
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          border-bottom: 1px solid rgba(100,75,145,0.10);
         }
         .feature-card:last-child {
           border-bottom: none;
@@ -274,7 +274,7 @@ export function Hero() {
 
       {/* Deep radial base */}
       <div className="absolute inset-0 z-0"
-        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(30,70,180,0.1) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(190,170,235,0.24) 0%, transparent 70%)" }} />
 
       {/* Blue accent orb — top-right */}
       <motion.div
@@ -282,7 +282,7 @@ export function Hero() {
         style={{
           top: "-80px", right: "-60px",
           width: "clamp(220px, 38vw, 520px)", height: "clamp(220px, 38vw, 520px)",
-          background: "radial-gradient(circle, rgba(40,100,255,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(167,139,232,0.20) 0%, transparent 70%)",
           borderRadius: "50%",
         }}
       />
@@ -293,7 +293,7 @@ export function Hero() {
         style={{
           bottom: "80px", left: "-100px",
           width: "clamp(180px, 32vw, 400px)", height: "clamp(180px, 32vw, 400px)",
-          background: "radial-gradient(circle, rgba(20,60,180,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(190,170,235,0.18) 0%, transparent 70%)",
           borderRadius: "50%",
         }}
       />
@@ -302,14 +302,14 @@ export function Hero() {
       <div className="spin-ring spin-ring-wrap absolute z-0 pointer-events-none"
         style={{ top: "8%", right: "6%", width: "140px", height: "140px" }}>
         <svg viewBox="0 0 180 180" fill="none" style={{ width: "100%", height: "100%" }}>
-          <circle cx="90" cy="90" r="85" stroke="rgba(80,140,255,0.12)" strokeWidth="1" strokeDasharray="8 6" />
-          <circle cx="90" cy="90" r="70" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+          <circle cx="90" cy="90" r="85" stroke="rgba(145,110,205,0.13)" strokeWidth="1" strokeDasharray="8 6" />
+          <circle cx="90" cy="90" r="70" stroke="rgba(145,110,205,0.08)" strokeWidth="0.5" />
         </svg>
       </div>
 
       {/* Vertical grid lines */}
       <div className="absolute inset-0 z-0 pointer-events-none" style={{
-        backgroundImage: "repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12.5%)",
+        backgroundImage: "repeating-linear-gradient(90deg, rgba(100,75,145,0.035) 0px, rgba(100,75,145,0.035) 1px, transparent 1px, transparent 12.5%)",
         backgroundSize: "12.5% 100%"
       }} />
 
@@ -317,7 +317,7 @@ export function Hero() {
       <div className="hidden sm:block absolute z-0 pointer-events-none"
         style={{
           top: 0, right: "18%", width: "1px", height: "100%",
-          background: "linear-gradient(to bottom, transparent 0%, rgba(80,140,255,0.2) 35%, transparent 100%)"
+          background: "linear-gradient(to bottom, transparent 0%, rgba(145,110,205,0.20) 35%, transparent 100%)"
         }} />
 
       {/* Floating particles */}
@@ -329,7 +329,7 @@ export function Hero() {
             style={{
               width: i % 3 === 0 ? "2px" : "1px",
               height: i % 3 === 0 ? "2px" : "1px",
-              background: i % 2 === 0 ? "rgba(106,176,255,0.7)" : "rgba(255,255,255,0.35)",
+              background: i % 2 === 0 ? "rgba(145,110,205,0.65)" : "rgba(145,110,205,0.22)",
               left: `${5 + (i * 4.7) % 90}%`,
               top: `${10 + (i * 7.3) % 80}%`,
             }}
@@ -354,7 +354,7 @@ export function Hero() {
           fontSize: "clamp(64px, 16vw, 220px)",
           letterSpacing: "-8px", whiteSpace: "nowrap",
           color: "transparent",
-          WebkitTextStroke: "1px rgba(255,255,255,0.025)",
+          WebkitTextStroke: "1px rgba(100,75,145,0.12)",
         }}>
           E·CELL
         </div>
@@ -396,17 +396,17 @@ export function Hero() {
                   lineHeight: 0.92, letterSpacing: "-3px", margin: 0,
                 }}
               >
-                <span className="block text-gray-600"
+                <span className="block text-[#493878]"
                   style={{ fontSize: "clamp(44px, 10vw, 116px)" }}>
-                  Ignite
+                  Ideas.
                 </span>
-                <span className="block text-white"
+                <span className="block text-[#241942]"
                   style={{ fontSize: "clamp(44px, 10vw, 116px)" }}>
-                  Build.
+                  Connect.
                 </span>
                 <span className="block hero-gradient-text"
                   style={{ fontSize: "clamp(44px, 10vw, 116px)" }}>
-                  Scale_
+                  Create.
                 </span>
               </h1>
             </motion.div>
@@ -419,16 +419,12 @@ export function Hero() {
               <p style={{
                 fontFamily: "'DM Sans', sans-serif", fontWeight: 300,
                 fontSize: "clamp(13px, 2vw, 15px)",
-                lineHeight: 1.85, color: "rgba(255,255,255,0.42)",
+                lineHeight: 1.85, color: "#756B86",
                 maxWidth: "min(520px, 100%)",
                 textAlign: "left",
               }}>
-                Transforming{" "}
-                <span style={{ color: "rgba(255,255,255,0.88)", fontWeight: 500 }}>ideas</span>{" "}
-                 into meaningful impact.
-Driven by innovation, collaboration, and entrepreneurial spirit.
-Inspiring students to think bigger and {" "}
-                <span style={{ color: "#6ab0ff", fontWeight: 500 }}>build better</span>
+                A space where ambitious minds connect, collaborate and turn innovative ideas into meaningful impact. Inspiring students to think bigger, build together and create the future.
+              </span>
               </p>
 
               {/* <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 flex-shrink-0 w-full sm:w-auto">
@@ -457,7 +453,7 @@ Inspiring students to think bigger and {" "}
                       fontFamily: "'Space Mono', monospace", fontWeight: 400,
                       fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase",
                       borderRadius: "4px", padding: "14px 28px",
-                      border: "1px solid rgba(255,255,255,0.1)",
+                      border: "1px solid rgba(145,110,205,0.25)",
                       height: "auto", transition: "border-color 0.25s, color 0.25s",
                     }}
                     onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(106,176,255,0.5)"; e.currentTarget.style.color = "#6ab0ff"; }}
@@ -509,7 +505,7 @@ Inspiring students to think bigger and {" "}
         <span style={{
           fontFamily: "'Space Mono', monospace", fontSize: "9px",
           letterSpacing: "0.22em", textTransform: "uppercase",
-          color: "rgba(255,255,255,0.18)"
+          color: "rgba(100,75,145,0.55)"
         }}>
           Scroll
         </span>
@@ -518,14 +514,14 @@ Inspiring students to think bigger and {" "}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           style={{
             width: "22px", height: "38px", borderRadius: "11px",
-            border: "1px solid rgba(255,255,255,0.1)",
+            border: "1px solid rgba(145,110,205,0.25)",
             display: "flex", justifyContent: "center", paddingTop: "6px"
           }}
         >
           <motion.div
             animate={{ opacity: [1, 0.2, 1], y: [0, 10, 0] }}
             transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-            style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#6ab0ff" }}
+            style={{ width: "3px", height: "3px", borderRadius: "50%", background: "#8967CB" }}
           />
         </motion.div>
       </motion.div>
