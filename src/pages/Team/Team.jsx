@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '../../components/Layout/layout';
-import { Linkedin, X, Mail, ArrowUpRight } from 'react-feather';
+import { Linkedin, X, Mail, ArrowUpRight, ChevronLeft, ChevronRight } from 'react-feather';
 import LightRays from './animation/LightRays';
 
 
@@ -9,8 +9,6 @@ import ankushrana from '../../assets/TeamMember/ankushrana.jpg'
 import PandaMam from '../../assets/TeamMember/pandamam.PNG'
 import sarita from '../../assets/TeamMember/sarita.jpg'
 import nidhi from '../../assets/TeamMember/nidhi.jpg'
-import satyam from '../../assets/TeamMember/satyam.png'
-import manav from '../../assets/TeamMember/manav.jpeg'
 
 import krishna from '../../assets/TeamMember/2026/krishna.jpg'
 import sanskriti from '../../assets/TeamMember/2026/sanskriti.jpg'
@@ -40,6 +38,99 @@ import progya from '../../assets/TeamMember/2026/progya.jpg'
 import aeshna from '../../assets/TeamMember/2026/aeshna.jpg'
 import parul from '../../assets/TeamMember/2026/parul.jpg'
 
+// All photos directly in TeamMember/ (the 2026/ subfolder is not included)
+const oldPhotos = import.meta.glob('../../assets/TeamMember/*.{jpg,jpeg,png,PNG,webp}', {
+    eager: true,
+    import: 'default',
+});
+
+// People who should NOT appear under Past Members (matched by start of file name)
+const excludedPast = ['vivek', 'shalini'];
+
+// Finds a photo in TeamMember/ by the start of its file name (undefined if not found)
+const findOldPhoto = (prefix) => {
+    const entry = Object.entries(oldPhotos).find(([path]) =>
+        path.split('/').pop().toLowerCase().startsWith(prefix)
+    );
+    return entry ? entry[1] : undefined;
+};
+const anishPhoto = findOldPhoto('anish');
+const aakritiPhoto = findOldPhoto('aakriti');
+
+// Optional: nicer display names. Key = file name without extension, in lowercase.
+const pastNameOverrides = {
+    // adityakumar: "Aditya Kumar",
+    // aradhaygupta: "Aradhay Gupta",
+};
+
+
+// Auto-advancing slideshow of past members (pauses on hover, arrows to navigate)
+const PastMembersSlideshow = ({ members }) => {
+    const [index, setIndex] = useState(0);
+    const [paused, setPaused] = useState(false);
+    const count = members.length;
+
+    const next = () => setIndex((i) => (i + 1) % count);
+    const prev = () => setIndex((i) => (i - 1 + count) % count);
+
+    useEffect(() => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (paused || reduceMotion || count < 2) return;
+        const id = setInterval(() => setIndex((i) => (i + 1) % count), 3000);
+        return () => clearInterval(id);
+    }, [paused, count]);
+
+    if (count === 0) return null;
+    const current = members[index];
+
+    return (
+        <div
+            className="relative mx-auto w-full max-w-sm"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+        >
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-dark aspect-3/4">
+                <AnimatePresence mode="wait">
+                    <motion.img
+                        key={current.name}
+                        src={current.img}
+                        alt={current.name}
+                        initial={{ opacity: 0, scale: 1.04 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute inset-0 w-full h-full object-cover object-top"
+                    />
+                </AnimatePresence>
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 bg-linear-to-t from-black/80 to-transparent">
+                    <h3 className="text-2xl font-black text-white font-display leading-tight">{current.name}</h3>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                onClick={prev}
+                aria-label="Previous past member"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-neutral-900/80 backdrop-blur-md p-2 rounded-full text-white border border-neutral-700/60 hover:bg-neutral-800/90 transition-all hover:scale-110"
+            >
+                <ChevronLeft size={20} />
+            </button>
+            <button
+                type="button"
+                onClick={next}
+                aria-label="Next past member"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-neutral-900/80 backdrop-blur-md p-2 rounded-full text-white border border-neutral-700/60 hover:bg-neutral-800/90 transition-all hover:scale-110"
+            >
+                <ChevronRight size={20} />
+            </button>
+
+            <p className="mt-4 text-center text-sm text-neutral-muted" aria-live="polite">
+                {index + 1} / {count}
+            </p>
+        </div>
+    );
+};
+
 const Team = () => {
     const FacultyCoordinator = [
         {
@@ -56,8 +147,8 @@ const Team = () => {
     ];
 
     const leadership = [
-        { name: "Satyam Gupta", role: "President", img: satyam, linkedin: "", email: "" },
-        { name: "Manav Garg", role: "President", img: manav, linkedin: "https://www.linkedin.com/in/manav-garg-029969259", email: "mgarg2457@gmail.com" },
+        { name: "Anish", role: "President", img: anishPhoto, linkedin: "", email: "" },
+        { name: "Aakriti", role: "President", img: aakritiPhoto, linkedin: "", email: "" },
     ];
 
     const heads = [
@@ -110,6 +201,32 @@ const Team = () => {
         { name: "Aeshna Jain", role: "Web and Technical Team Member", img: aeshna },
         { name: "Parul Singh", role: "Web and Technical Team Member", img: parul },
     ];
+
+    // Photos already used elsewhere on the page (faculty, coordinators, presidents)
+    const usedElsewhere = new Set([ankushrana, PandaMam, sarita, nidhi, anishPhoto, aakritiPhoto]);
+
+    // First names of everyone on the current page, so continuing members aren't listed as past
+    const currentFirstNames = new Set(
+        [...heads, ...Content, ...CorporateRelations, ...Design, ...Operations, ...Social_Media, ...Sponsor, ...Technical]
+            .map((m) => m.name.split(' ')[0].toLowerCase())
+    );
+
+    const PastMembers = Object.entries(oldPhotos)
+        .map(([path, img]) => {
+            const key = path.split('/').pop().replace(/\.[^.]+$/, '').toLowerCase();
+            return { key, img };
+        })
+        .filter(({ key, img }) =>
+            !usedElsewhere.has(img) &&
+            !currentFirstNames.has(key) &&
+            !['male', 'female'].includes(key) &&
+            !excludedPast.some((n) => key.startsWith(n))
+        )
+        .map(({ key, img }) => ({
+            name: pastNameOverrides[key] || key.charAt(0).toUpperCase() + key.slice(1),
+            role: 'Past Member',
+            img,
+        }));
 
 
     const containerVariants = {
@@ -263,13 +380,6 @@ const Team = () => {
             </div>
             <section className="pt-24 pb-32 px-6 lg:px-20 max-w-7xl mx-auto" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="text-center mb-24">
-                    {/* <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-bold uppercase tracking-wider"
-                    >
-                        The Visionaries
-                    </motion.div> */}
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -309,22 +419,13 @@ const Team = () => {
                     </div>
                 ))}
 
-                {/* Join CTA */}
-                {/* <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    className="mt-32 p-12 rounded-3xl bg-white/5 border border-white/5 text-center relative overflow-hidden"
-                >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-primary to-transparent opacity-50"></div>
-                    <div className="relative z-10">
-                        <h2 className="text-3xl font-bold text-white mb-6 font-display">Want to be part of the legacy?</h2>
-                        <button className="bg-white  text-black text-neutral-dark px-8 py-4 rounded-xl font-bold hover:bg-primary transition-colors">
-                            Join the Team 
-                        </button>
+                {/* Past Members - slideshow (always last) */}
+                {PastMembers.length > 0 && (
+                    <div className="mb-20">
+                        <h2 className="text-2xl font-bold text-white mb-8 border-l-4 border-primary pl-4">Past Members</h2>
+                        <PastMembersSlideshow members={PastMembers} />
                     </div>
-                </motion.div> */}
-
-
+                )}
             </section>
         </Layout>
     );
