@@ -6,9 +6,9 @@ import LightRays from './animation/LightRays';
 import Carousel from './animation/Carousel';
 
 
-import uma from '../../assets/TeamMember/Uma.jpeg'
-import naveen from '../../assets/TeamMember/Naveen.jpeg'
-import ehsaan from '../../assets/TeamMember/Ehsaan.jpeg'
+import uma from '../../assets/TeamMember/uma.jpeg'
+import naveen from '../../assets/TeamMember/naveen.jpeg'
+import ehsaan from '../../assets/TeamMember/ehsaan.jpeg'
 
 import krishna from '../../assets/TeamMember/2026/krishna.jpg'
 import sanskriti from '../../assets/TeamMember/2026/sanskriti.jpg'
