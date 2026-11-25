@@ -45,7 +45,7 @@ const oldPhotos = import.meta.glob('../../assets/TeamMember/*.{jpg,jpeg,png,PNG,
 });
 
 // People who should NOT appear under Past Members (matched by start of file name)
-const excludedPast = ['vivek', 'shalini', 'pandamam', 'sarita', 'nidhi', 'ankush'];
+const excludedPast = ['vivek', 'shalini', 'pandamam', 'sarita', 'nidhi', 'ankush', 'vinay'];
 
 // Finds a photo in TeamMember/ by the start of its file name (undefined if not found)
 const findOldPhoto = (prefix) => {
@@ -56,6 +56,7 @@ const findOldPhoto = (prefix) => {
 };
 const anishPhoto = findOldPhoto('anish');
 const aakritiPhoto = findOldPhoto('aakriti');
+const vinayPhoto = findOldPhoto('vinay');
 
 // Optional: nicer display names. Key = file name without extension, in lowercase.
 const pastNameOverrides = {
@@ -76,6 +77,7 @@ const Team = () => {
     const Coordinator = [
         { name: "Dr. Naveen", role: "Coordinator", img: naveen },
         { name: "Dr. Ehsaan Asgar", role: "Coordinator", img: ehsaan },
+        { name: "Dr. Vinay Nassa", role: "Coordinator", img: vinayPhoto },
     ];
 
     const leadership = [
